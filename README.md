@@ -13,7 +13,7 @@ $> curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer
 ### Step 1: Configure your server in conf.d/site.conf
 Basically, you need to change the example.robotbas.com references to your domain.
 
-### Ste 2 - Start server
+### Ste 2 - Start docker stack
 ```{bash}
 docker stack deploy --compose-file=portainer-agent-stack.yml portainer
 ```
