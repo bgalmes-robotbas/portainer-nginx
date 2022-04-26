@@ -11,7 +11,7 @@ $> curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer
 ## Steps
 
 ### Step 1: Configure your main domain in conf.d/site.conf
-Basically, you need to change the example.com references to your domain.
+Basically, you need to change the example.com and www.example.com references to your domain.
 
 ### Step 2: Configure portainer domain under conf.d/portainer.conf file
 Change the portainer.example.com references to your domain. Or adapt the file to your requirements.

@@ -32,14 +32,14 @@ services:
         constraints: [node.role == manager]
   nginx:
     restart: unless-stopped
-    image: staticfloat/nginx-certbot
+    image: jonasal/nginx-certbot:latest
     ports:
       - 80:80/tcp
       - 443:443/tcp
-    environment:
-       CERTBOT_EMAIL: owner@company.com
+    env_file:
+      - ./.env
     volumes:
-      - ./conf.d:/etc/nginx/user.conf.d:ro
+      - ./conf.d:/etc/nginx/user_conf.d:ro
       - letsencrypt:/etc/letsencrypt
     networks:
       - nginx_network
