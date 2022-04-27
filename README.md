@@ -22,10 +22,23 @@ Change the portainer.example.com references to your domain. Or adapt the file to
 ### Step 4: Configure subdomains
 Configure other subdomains in independent files with *.conf extension under the conf.d folder.
 
-### Step 5: Start docker stack
+### Step 5: Configure environment variables
+Create a copy of the .env-example file in the same directory with the name ".env". Set the variables values with your config.
+
+### Step 6: Start docker stack
 ```{bash}
 docker stack deploy --compose-file=portainer-agent-stack.yml portainer
 ```
 
-### Step 6: Configure environment variables
-Create a copy of the .env-example file in the same directory with the name ".env". Set the variables values with your config.
+### Step 7: Test certificate creation and update
+Inspect if all configured certificates has been created correctly with the next command:
+```{bash}
+docker exec -it [NGINX_CONTAINER] certbot certificates
+```
+
+Execute manually the renewal process to check for errors:
+```{bash}
+docker exec -it [NGINX_CONTAINER] ./scripts/run_certbot.sh force
+```
+
+If you don't see any errors nginx and certbot is successfully installed and working!
